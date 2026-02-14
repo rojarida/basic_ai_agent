@@ -27,6 +27,14 @@ GEMINI_API_KEY="your_api_key_here"
 
 ## Run
 
+Display only the model's response:
+
 ```bash
 uv run main.py "Insert your Gemini prompt here..."
+```
+
+Display prompt, token counts, and the model's repsponse:
+
+```bash
+uv run main.py "Insert your Gemini prompt here..." --verbose
 ```
