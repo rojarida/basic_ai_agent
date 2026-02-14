@@ -2,7 +2,7 @@
 Simple Python AI Agent using Google Gemini.
 
 ## Prerequisites
-- Python 3.11+
+- Python 3.12+
 - `uv` installed
 
 ## Setup
