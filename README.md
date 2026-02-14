@@ -28,5 +28,5 @@ GEMINI_API_KEY="your_api_key_here"
 ## Run
 
 ```bash
-uv run main.py
+uv run main.py "Insert your Gemini prompt here..."
 ```
