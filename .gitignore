@@ -6,3 +6,4 @@ dist/
 
 # Virtual environments
 .venv
+.env
