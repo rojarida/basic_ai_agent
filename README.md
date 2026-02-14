@@ -1,19 +1,18 @@
 # basic_ai_agent
 Simple Python AI Agent using Google Gemini.
 
+## Prerequisites
+- Python 3.11+
+- `uv` installed
+
 ## Setup
 
-Create and activate a virtual environment:
+Add the project dependencies.
+This updates `pyproject.toml` and creates/updates `uv.lock`.
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -U pip
-```
-
-Install dependencies:
-```bash
-pip install "google-genai==1.12.1" "python-dotenv==1.1.0"
+uv add google-genai==1.12.1
+uv add python-dotenv==1.1.0
 ```
 
 ## Configuration
@@ -29,11 +28,5 @@ GEMINI_API_KEY="your_api_key_here"
 ## Run
 
 ```bash
-python main.py
+uv run main.py
 ```
-
-## Dependencies
-- google-genai==1.12.1
-- python-dotenv==1.1.0
-
-
