@@ -8,6 +8,7 @@ from google.genai import types
 def main():
     parser = argparse.ArgumentParser(description="Gemini CLI")
     parser.add_argument("user_prompt", type=str, help="User prompt")
+    parser.add_argument("--verbose", action="store_true", help="Enable verbose output")
     args = parser.parse_args()
 
     load_dotenv()
@@ -32,10 +33,12 @@ def main():
         raise RuntimeError(
             "No usage_metadata returned."
         )
-    
-    print(f"User prompt: {args.user_prompt}")
-    print(f"Prompt tokens: {usage.prompt_token_count}")
-    print(f"Response tokens: {usage.candidates_token_count}")
+
+    if args.verbose:
+        print(f"User prompt: {args.user_prompt}")
+        print(f"Prompt tokens: {usage.prompt_token_count}")
+        print(f"Response tokens: {usage.candidates_token_count}")
+
     print(f"Response:\n{response.text}")
 
 
