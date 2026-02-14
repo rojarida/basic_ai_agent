@@ -1,9 +1,14 @@
 import os
+import argparse
 from dotenv import load_dotenv
 from google import genai
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Gemini CLI")
+    parser.add_argument("user_prompt", type=str, help="User prompt")
+    args = parser.parse_args()
+
     load_dotenv()
     api_key = os.environ.get("GEMINI_API_KEY")
 
@@ -12,12 +17,10 @@ def main():
             "Missing GEMINI_API_KEY. Insert into .env file. (Reminder: Do not share API keys)"
         )
 
-    contents="Using only a single paragraph, what is the difference between information technology and information security?"
-
     client = genai.Client(api_key=api_key)
     response = client.models.generate_content(
         model="gemini-2.5-flash",
-        contents=contents
+        contents=args.user_prompt,
     )
 
     usage = response.usage_metadata
@@ -26,7 +29,7 @@ def main():
             "No usage_metadata returned."
         )
     
-    print(f"User prompt: {contents}")
+    print(f"User prompt: {args.user_prompt}")
     print(f"Prompt tokens: {usage.prompt_token_count}")
     print(f"Response tokens: {usage.candidates_token_count}")
     print(f"Response:\n{response.text}")
